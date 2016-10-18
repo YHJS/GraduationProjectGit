@@ -10,16 +10,14 @@
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery.bxslider.css" /> <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="../css/jquery.jscrollpane.css"  media="all" /> <!-- Scroll -->
     <link rel="stylesheet" type="text/css" href="../css/iPhoneSE16GB_card.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/add_order.css">
-
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
     <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
@@ -29,13 +27,50 @@
 <![endif]-->
 <!-- Add your site or application content here -->
 <div class="main-container" id="main-container-fog">
+    <div class="widget-calc-wrapper">
+        <div class="widget-calc-bookmark">
+            <span>Онлайн калькулятор</span>
+        </div>
+        <form name="calculator" class="widget-calc-container" id="main-container">
+            <div class="calculator-scoreboard-wrapper">
+                <h3 class="calculator-title">Calculator</h3>
+                <input type="text" name="display" class="calculator-display" id="display">
+            </div>
+            <div class="calculator-keyboard-wrapper">
+                <div class="calculator-keyboard-wrapper-number">
+                    <input type="button" class="function-button-reset" value="on/c" id="button-reset">
+                    <input type="button" class="number-button" name="number" value="7" id="button-7" onclick="getData('7')">
+                    <input type="button" class="number-button" name="number" value="8" id="button-8" onclick="getData('8')">
+                    <input type="button" class="number-button" name="number" value="9" id="button-9" onclick="getData('9')">
+                    <input type="button" class="number-button" name="number" value="4" id="button-4" onclick="getData('4')">
+                    <input type="button" class="number-button" name="number" value="5" id="button-5" onclick="getData('5')">
+                    <input type="button" class="number-button" name="number" value="6" id="button-6" onclick="getData('6')">
+                    <input type="button" class="number-button" name="number" value="1" id="button-1" onclick="getData('1')">
+                    <input type="button" class="number-button" name="number" value="2" id="button-2" onclick="getData('2')">
+                    <input type="button" class="number-button" name="number" value="3" id="button-3" onclick="getData('3')">
+                    <input type="button" class="number-button" name="number" value="." id="button-dot" onclick="getData('.')">
+                    <input type="button" class="number-button" name="number" value="0" id="button-0" onclick="getData('0')">
+                    <input type="button" class="number-button" name="number" value="-/+" id="button-changeSign">
+                </div>
+                <div class="calculator-keyboard-wrapper-function">
+                    <input type="button" class="function-button" value="%" id="button-percent">
+                    <input type="button" class="function-button" value="&radic;" id="button-SquareRoot">
+                    <input type="button" class="function-button" value="+" id="button-addition" onclick="calculation('+')">
+                    <input type="button" class="function-button" value="-" id="button-subtraction" onclick="calculation('-')">
+                    <input type="button" class="function-button" value="*" id="button-multiplication" onclick="calculation('*')">
+                    <input type="button" class="function-button" value="/" id="button-division" onclick="calculation('/')">
+                    <input type="button" class="total-button" value="=" id="button-total" onclick="calculation('=')">
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="main-menu">
         <ul class="main-menu--navigation">
-            <li><a href="../pages/pay.html">Оплата</a></li>
-            <li><a href="../pages/guarantee.html">Гарантия</a></li>
-            <li><a href="../pages/faq.html">FAQ</a></li>
-            <li><a href="../pages/about_us.html">О нас</a></li>
-            <li><a href="../pages/contacts.html">Контакты</a></li>
+            <li><a href="../404.html">Оплата</a></li>
+            <li><a href="../404.html">Гарантия</a></li>
+            <li><a href="../404.html">FAQ</a></li>
+            <li><a href="../404.html">О нас</a></li>
+            <li><a href="../404.html">Контакты</a></li>
         </ul>
         <ul class="main-menu--navigation registration">
             <li><a href="../404.html">Регистрация</a></li>
@@ -52,7 +87,7 @@
             </div>
             <div class="header--search-container">
                 <div class="header--search-field">
-                    <input type="search" class="header--search-field-input" placeholder="Поиск">
+                    <input type="search" id="header--search-field-input" placeholder="Поиск">
                     <span class="header--search-field--button icon-search"></span>
                 </div>
             </div>
@@ -66,11 +101,13 @@
                      <span class="header--request-call-content">
                          Обратный&nbsp;звонок
                      </span>
-                <input type="button" class="header--request-call-button" value="заказать">
+                <input type="button" id="header--request-call-button" value="заказать">
             </div>
             <div class="header--shop-basket icon-basket">
                 <div class="header--shop-basket-purchase">
-                    <span class="header--shop-basket-purchase-number">0</span>
+                    <a href="../pages/add_order.html">
+                        <span id="header--shop-basket-purchase-number">0</span>
+                    </a>
                 </div>
             </div>
         </header>
@@ -114,7 +151,7 @@
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 catalog-navigation--products6">
                 <a href="products/covers.html">
-                    <span class="menu-icon icon-smartp">
+                    <span class="menu-icon icon-iphone-reverse">
                     </span>
                     Чехлы
                 </a>
@@ -192,10 +229,15 @@
                         </label>
                         <textarea class="wrapper-form-add-order--more-Information--text-area" id="wrapper-form-add-order--more-Information--text-area">
                         </textarea>
-                        <div class="buy-button add-oder-package-button">
+                        <div class="buy-button" id="add-oder-package-button">
                             <div class="buy-button-hotspot add-oder-button">
                             </div>
                             <a href="../404.html">Оформить заказ</a>
+                        </div>
+                        <div class="reversal-to-order-button cart-full-button-package--reverse" id="reversal-to-order">
+                            <div class="buy-button-hotspot cart-full-button--reverse">
+                            </div>
+                            <a>Отменить заказ</a>
                         </div>
                     </div>
                 </form>
@@ -345,13 +387,13 @@
                     <p class="footer-section-categories-name">Категории:</p>
                     <div class="footer-section-categories">
                         <ul>
-                            <li><a href="404.html">Мобильные&nbsp;телефоны</a></li>
-                            <li><a href="404.html">Планшетные&nbsp;ПК</a></li>
-                            <li><a href="404.html">Умные&nbsp;часы</a></li>
-                            <li><a href="404.html">Наушники</a></li>
-                            <li><a href="404.html">Внешние&nbsp;батареи</a></li>
-                            <li><a href="404.html">Bluetooth-гарнитуры</a></li>
-                            <li><a href="404.html">Чехлы</a></li>
+                            <li><a href="../pages/products/smartphones.html">Мобильные&nbsp;телефоны</a></li>
+                            <li><a href="../pages/products/smartphones.html">Планшетные&nbsp;ПК</a></li>
+                            <li><a href="../pages/products/smartphones.html">Умные&nbsp;часы</a></li>
+                            <li><a href="../pages/products/smartphones.html">Наушники</a></li>
+                            <li><a href="../pages/products/smartphones.html">Внешние&nbsp;батареи</a></li>
+                            <li><a href="../pages/products/smartphones.html">Bluetooth-гарнитуры</a></li>
+                            <li><a href="../pages/products/smartphones.html">Чехлы</a></li>
                         </ul>
                     </div>
                 </div>
@@ -389,6 +431,8 @@
     </div>
 </div>
 <div class="cart-full-wrapper" id="add-product-in-card">
+            <span class="icon-cancel" id="cart-full-wrapper-cancel-icon">
+            </span>
     <div class="cart-full--header-window">
         <p>Вы добавили в корзину</p>
     </div>
@@ -408,6 +452,7 @@
         <div class="cart-full-content-window--total-prise">
             <span>14 321,00</span>
             <span>грн</span>
+            <span class="icon-cancel" id="basket-erase"></span>
         </div>
     </div>
     <div class="cart-full-buttons-window">
@@ -425,7 +470,7 @@
             <div class="buy-button cart-full-button-package--confirm">
                 <div class="buy-button-hotspot cart-full-button--confirm">
                 </div>
-                <a href="../../../pages/add_order.html">Оформить заказ</a>
+                <a href="../pages/add_order.html">Оформить заказ</a>
             </div>
         </div>
     </div>
@@ -438,6 +483,7 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="../js/plugins.js"></script>
 <script src="../js/vendor/jquery-ui.min.js"></script>
+<script src="../js/vendor/underscore.js"></script>
 <script src="../js/main.js"></script>
 <!-- Slider -->
 <script src="../js/vendor/jquery.bxslider.min.js"></script>

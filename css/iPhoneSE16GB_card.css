@@ -59,9 +59,10 @@
     color: #487378;
 }
 .card-product-description-cost--button {
-    position: static;
+    position: relative !important;
+    left: 9px;
     font-family: "OpenSansSemiBold", Arial sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     display: inline-block;
     width: 94px;
     margin: 0 15px;
@@ -137,7 +138,7 @@
 }
 
 .card-product--background-photo-1 {
-    width: 536px;
+    width: 555px;
     height: 600px;
     background: url("../img/products/smartphones/apple/Card/iPhon_SE_color.png") center no-repeat;
 }

@@ -10,12 +10,12 @@
     <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" >
-    <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" >
-    <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.theme.css" >
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css" /> <!-- Slider -->
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.theme.css">
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css"/> <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.jscrollpane.css"  media="all" /> <!-- Scroll -->
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
     <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
@@ -24,13 +24,50 @@
 <![endif]-->
 <!-- Add your site or application content here -->
 <div class="main-container" id="main-container-fog">
+    <div class="widget-calc-wrapper">
+        <div class="widget-calc-bookmark">
+            <span>Онлайн калькулятор</span>
+        </div>
+        <form name="calculator" class="widget-calc-container" id="main-container">
+            <div class="calculator-scoreboard-wrapper">
+                <h3 class="calculator-title">Calculator</h3>
+                <input type="text" name="display" class="calculator-display" id="display">
+            </div>
+            <div class="calculator-keyboard-wrapper">
+                <div class="calculator-keyboard-wrapper-number">
+                    <input type="button" class="function-button-reset" value="on/c" id="button-reset">
+                    <input type="button" class="number-button" name="number" value="7" id="button-7" onclick="getData('7')">
+                    <input type="button" class="number-button" name="number" value="8" id="button-8" onclick="getData('8')">
+                    <input type="button" class="number-button" name="number" value="9" id="button-9" onclick="getData('9')">
+                    <input type="button" class="number-button" name="number" value="4" id="button-4" onclick="getData('4')">
+                    <input type="button" class="number-button" name="number" value="5" id="button-5" onclick="getData('5')">
+                    <input type="button" class="number-button" name="number" value="6" id="button-6" onclick="getData('6')">
+                    <input type="button" class="number-button" name="number" value="1" id="button-1" onclick="getData('1')">
+                    <input type="button" class="number-button" name="number" value="2" id="button-2" onclick="getData('2')">
+                    <input type="button" class="number-button" name="number" value="3" id="button-3" onclick="getData('3')">
+                    <input type="button" class="number-button" name="number" value="." id="button-dot" onclick="getData('.')">
+                    <input type="button" class="number-button" name="number" value="0" id="button-0" onclick="getData('0')">
+                    <input type="button" class="number-button" name="number" value="-/+" id="button-changeSign">
+                </div>
+                <div class="calculator-keyboard-wrapper-function">
+                    <input type="button" class="function-button" value="%" id="button-percent">
+                    <input type="button" class="function-button" value="&radic;" id="button-SquareRoot">
+                    <input type="button" class="function-button" value="+" id="button-addition" onclick="calculation('+')">
+                    <input type="button" class="function-button" value="-" id="button-subtraction" onclick="calculation('-')">
+                    <input type="button" class="function-button" value="*" id="button-multiplication" onclick="calculation('*')">
+                    <input type="button" class="function-button" value="/" id="button-division" onclick="calculation('/')">
+                    <input type="button" class="total-button" value="=" id="button-total" onclick="calculation('=')">
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="main-menu">
         <ul class="main-menu--navigation">
-            <li><a href="../../pages/pay.html">Оплата</a></li>
-            <li><a href="../../pages/guarantee.html">Гарантия</a></li>
-            <li><a href="../../pages/faq.html">FAQ</a></li>
-            <li><a href="../../pages/about_us.html">О нас</a></li>
-            <li><a href="../../pages/contacts.html">Контакты</a></li>
+            <li><a href="../../404.html">Оплата</a></li>
+            <li><a href="../../404.html">Гарантия</a></li>
+            <li><a href="../../404.html">FAQ</a></li>
+            <li><a href="../../404.html">О нас</a></li>
+            <li><a href="../../404.html">Контакты</a></li>
         </ul>
         <ul class="main-menu--navigation registration">
             <li><a href="../../404.html">Регистрация</a></li>
@@ -47,7 +84,7 @@
             </div>
             <div class="header--search-container">
                 <div class="header--search-field">
-                    <input type="search" class="header--search-field-input" placeholder="Поиск">
+                    <input type="search" id="header--search-field-input" placeholder="Поиск">
                     <span class="header--search-field--button icon-search"></span>
                 </div>
             </div>
@@ -61,11 +98,13 @@
                      <span class="header--request-call-content">
                          Обратный&nbsp;звонок
                      </span>
-                <input type="button" class="header--request-call-button" value="заказать">
+                <input type="button" id="header--request-call-button" value="заказать">
             </div>
             <div class="header--shop-basket icon-basket">
                 <div class="header--shop-basket-purchase">
-                    <span class="header--shop-basket-purchase-number">0</span>
+                    <a href="../../pages/add_order.html">
+                        <span id="header--shop-basket-purchase-number">0</span>
+                    </a>
                 </div>
             </div>
         </header>
@@ -109,7 +148,7 @@
             </div>
             <div class=".col-lg-2 col-md-2 col-sm-2 col-xs-12 catalog-navigation--products6">
                 <a href="../../pages/products/smartphones.html">
-                   <span class="menu-icon icon-smartp">
+                   <span class="menu-icon icon-iphone-reverse">
                    </span>
                    Чехлы
                 </a>
@@ -138,16 +177,18 @@
                             <span class="product-catalog--panel-setup--sorting-ico-triangle-up">
                             </span>
                         </span>
-                        <p class="product-catalog--panel-setup--sorting-cost--range-input">
-                            <label> От <input type="text"  class="product-catalog--panel-setup--sorting-cost--from"></label>
-                            <label> до <input type="text"  class="product-catalog--panel-setup--sorting-cost--to"></label>
-                        </p>
-                        <p class="product-catalog--panel-setup--sorting-cost--range">
-                            <input type="text" id="amount-from" class="product-catalog--panel-setup--sorting-cost--range-left" readonly>
-                            <input type="text" id="amount-to" class="product-catalog--panel-setup--sorting-cost--range-right" readonly>
-                        </p>
-                        <div id="slider-range">
-                        </div>
+                        <div id="product-catalog--panel-setup--sorting-price">
+                            <p class="product-catalog--panel-setup--sorting-cost--range-input">
+                                <label> От <input type="text"  class="product-catalog--panel-setup--sorting-cost--from"></label>
+                                <label> до <input type="text"  class="product-catalog--panel-setup--sorting-cost--to"></label>
+                            </p>
+                            <p class="product-catalog--panel-setup--sorting-cost--range">
+                                <input type="text" id="amount-from" class="product-catalog--panel-setup--sorting-cost--range-left" readonly>
+                                <input type="text" id="amount-to" class="product-catalog--panel-setup--sorting-cost--range-right" readonly>
+                            </p>
+                            <div id="slider-range">
+                            </div>
+                         </div>
                     </li>
                     <li>
                         <span id="product-catalog--panel-setup--sorting-brand--switcher">
@@ -157,28 +198,36 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-brand">
                             <li>
-                                <label><input type="checkbox" aria-label="sadf"> Apple</label>
+                                <input type="checkbox" id="checkApple">
+                                <label for="checkApple">Apple</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Samsung</label>
+                                <input type="checkbox" id="checkSamsung">
+                                <label for="checkSamsung">Samsung</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> HTC</label>
+                                <input type="checkbox" id="checkHTC">
+                                <label for="checkHTC">HTC</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Xiaomi</label>
+                                <input type="checkbox" id="checkXiaomi">
+                                <label for="checkXiaomi">Xiaomi</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Sony</label>
+                                <input type="checkbox" id="checkSony">
+                                <label for="checkSony">Sony</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> LG</label>
+                                <input type="checkbox" id="checkLG">
+                                <label for="checkLG">LG</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Fly</label>
+                                <input type="checkbox" id="checkFly">
+                                <label for="checkFly">Fly</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Meizu</label>
+                                <input type="checkbox" id="checkMeizu">
+                                <label for="checkMeizu">Meizu</label>
                             </li>
                         </ul>
                     </li>
@@ -190,22 +239,28 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-screen_size">
                             <li>
-                                <label><input type="checkbox"> Менее 4"</label>
+                                <input type="checkbox" id="checkScreenFrom4">
+                                <label for="checkScreenFrom4">Менее 4"</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> от 4-4.5"</label>
+                                <input type="checkbox" id="checkScreenFrom4-4.5">
+                                <label for="checkScreenFrom4-4.5">от 4-4.5"</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> от 4.5-5"</label>
+                                <input type="checkbox" id="checkScreenFrom4.5-5">
+                                <label for="checkScreenFrom4.5-5">от 4.5-5"</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> от 5-5.5"</label>
+                                <input type="checkbox" id="checkScreenFrom5-5.5">
+                                <label for="checkScreenFrom5-5.5">от 5-5.5"</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> от 5.5-6"</label>
+                                <input type="checkbox" id="checkScreenFrom5.5-6">
+                                <label for="checkScreenFrom5.5-6">от 5.5-6"</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> от 6" и более</label>
+                                <input type="checkbox" id="checkScreenFrom6more">
+                                <label for="checkScreenFrom6more">от 6" и более</label>
                             </li>
                         </ul>
                     </li>
@@ -217,23 +272,30 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-memory">
                             <li>
-                                <label><input type="checkbox"> Менее 1 ГБ</label>
+                                <input type="checkbox" id="checkMemoryFrom1">
+                                <label for="checkMemoryFrom1">Менее 1 ГБ</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 1-1.5 ГБ</label>
+                                <input type="checkbox" id="checkMemoryFrom1-1.5">
+                                <label for="checkMemoryFrom1-1.5">1-1.5 ГБ</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 2 ГБ</label>
+                                <input type="checkbox" id="checkMemoryFrom2">
+                                <label for="checkMemoryFrom2">2 ГБ</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 3 ГБ</label>
+                                <input type="checkbox" id="checkMemoryFrom3">
+                                <label for="checkMemoryFrom3">3 ГБ</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 4 ГБ и больше</label>
+                                <input type="checkbox" id="checkMemoryFrom4more">
+                                <label for="checkMemoryFrom4more">4 ГБ</label>
                             </li>
                         </ul>
                     </li>
-                    <span>Подробные характеристики</span>
+                    <span id="product-catalog--panel-setup--sorting--detailed-specifications">
+                        Подробные характеристики
+                    </span>
                     <li>
                         <span id="product-catalog--panel-setup--sorting-os-switcher">
                             Операционная система
@@ -242,19 +304,24 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-os">
                             <li>
-                                <label><input type="checkbox"> Android</label>
+                                <input type="checkbox" id="checkOS_Android">
+                                <label for="checkOS_Android">Android</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Apple iOS</label>
+                                <input type="checkbox" id="checkOS_iOS">
+                                <label for="checkOS_iOS">Apple iOS</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Windows Phone</label>
+                                <input type="checkbox" id="checkOS_WinPhone">
+                                <label for="checkOS_WinPhone">Windows Phone</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Symbian</label>
+                                <input type="checkbox" id="checkOS_Symbian">
+                                <label for="checkOS_Symbian">Symbian</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> Windows Mobile</label>
+                                <input type="checkbox" id="checkOS_WinMobile">
+                                <label for="checkOS_WinMobile">Windows Mobile</label>
                             </li>
                         </ul>
                     </li>
@@ -266,22 +333,28 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-camera">
                             <li>
-                                <label><input type="checkbox"> до 3 Мп</label>
+                                <input type="checkbox" id="checkCam_from3">
+                                <label for="checkCam_from3">до 3 Мп</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 3 - 5 Мп</label>
+                                <input type="checkbox" id="checkCam_from3-5">
+                                <label for="checkCam_from3-5">3 - 5 Мп</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 8-10 Мп</label>
+                                <input type="checkbox" id="checkCam_from8-10">
+                                <label for="checkCam_from8-10">8-10 Мп</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 12 - 14 Мп</label>
+                                <input type="checkbox" id="checkCam_from12-14">
+                                <label for="checkCam_from12-14">12 - 14 Мп</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 16 Мп</label>
+                                <input type="checkbox" id="checkCam_from16">
+                                <label for="checkCam_from16">16 Мп</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> 20 Мп и более</label>
+                                <input type="checkbox" id="checkCam_from20more">
+                                <label for="checkCam_from20more">20 Мп и более</label>
                             </li>
                         </ul>
                     </li>
@@ -293,26 +366,30 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-f_sim">
                             <li>
-                                <label><input type="checkbox"> обычная</label>
+                                <input type="checkbox" id="checkSim_ordinary">
+                                <label for="checkSim_ordinary">обычная</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> micro-SIM</label>
+                                <input type="checkbox" id="checkSim_micro">
+                                <label for="checkSim_micro">micro-SIM</label>
                             </li>
                             <li>
-                                <label><input type="checkbox"> nano-SIM</label>
+                                <input type="checkbox" id="checkSim_nano">
+                                <label for="checkSim_nano">nano-SIM</label>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <div class="product-catalog--panel-setup" >
-                <ul class="product-catalog--panel-setup--normalize">
-                    <li>Упорядочить</li>
-                    <li>Дешовые</li>
-                    <li>Дорогие</li>
-                    <li>Новые</li>
-                    <li>Поулярные</li>
-                </ul>
+                <form  id="product-catalog--panel-setup--normalize" action="#">
+                    <select name="files" id="files">
+                        <option value="cheap">Дешёвые</option>
+                        <option value="expensive" selected="selected">Дорогие</option>
+                        <option value="new">Новые</option>
+                        <option value="popular">Популярные</option>
+                    </select>
+                </form>
                 <div class="product-catalog--panel-setup--next-page">
                     <ul class="product-catalog--panel-setup--next-page-number">
                         <li><a href="#">1</a></li>
@@ -338,9 +415,10 @@
                 <div class="product-catalog--content--wrapper">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png" alt="Фото Apple-iPhone-SE">
                             <div class="product-catalog--content--pr1-name">
                                 <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p class="product-catalog--content--pr1-description">screen: 4, sim: nano, camera: 12, OS: iOS, memory: 16</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -363,6 +441,9 @@
                             <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
                             <div class="product-catalog--content--pr1-name">
                                 <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                            </div>
+                            <div class="product-catalog--content--pr1-description">
+                                <p>screen: 4, sim: nano, camera: 12, OS: iOS, memory: 16</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -612,13 +693,13 @@
                     <p class="footer-section-categories-name">Категории:</p>
                     <div class="footer-section-categories">
                         <ul>
-                            <li><a href="404.html">Мобильные&nbsp;телефоны</a></li>
-                            <li><a href="404.html">Планшетные&nbsp;ПК</a></li>
-                            <li><a href="404.html">Умные&nbsp;часы</a></li>
-                            <li><a href="404.html">Наушники</a></li>
-                            <li><a href="404.html">Внешние&nbsp;батареи</a></li>
-                            <li><a href="404.html">Bluetooth-гарнитуры</a></li>
-                            <li><a href="404.html">Чехлы</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Мобильные&nbsp;телефоны</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Планшетные&nbsp;ПК</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Умные&nbsp;часы</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Наушники</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Внешние&nbsp;батареи</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Bluetooth-гарнитуры</a></li>
+                            <li><a href="../../pages/products/smartphones.html">Чехлы</a></li>
                         </ul>
                     </div>
                 </div>
@@ -656,6 +737,8 @@
     </div>
 </div>
 <div class="cart-full-wrapper" id="add-product-in-card">
+            <span class="icon-cancel" id="cart-full-wrapper-cancel-icon">
+            </span>
     <div class="cart-full--header-window">
         <p>Вы добавили в корзину</p>
     </div>
@@ -675,6 +758,7 @@
         <div class="cart-full-content-window--total-prise">
             <span>14 321,00</span>
             <span>грн</span>
+            <span class="icon-cancel" id="basket-erase"></span>
         </div>
     </div>
     <div class="cart-full-buttons-window">
@@ -698,6 +782,7 @@
     </div>
 </div>
 
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -705,6 +790,7 @@
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="../../js/plugins.js"></script>
 <script src="../../js/vendor/jquery-ui.min.js"></script>
+<script src="../../js/vendor/underscore.js"></script>
 <script src="../../js/main.js"></script>
 <!-- Slider -->
 <script src="../../js/vendor/jquery.bxslider.min.js"></script>

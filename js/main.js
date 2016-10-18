@@ -45,7 +45,7 @@
                 "Fly",
                 "Meizu"
             ];
-            $( "#tags" ).autocomplete({
+            $( "#header--search-field-input" ).autocomplete({
                 source: availableTags
             });
         } );
@@ -56,7 +56,18 @@
     //    $( "input" ).checkboxradio();
     // } );
 
-   //-----------add_order ------------------
+//============================================================================
+//  jQuery UI // start
+//============================================================================
+
+   $( function() {
+       $( "#files" ).selectmenu();
+   } );
+
+
+//============================================================================
+//  more-Information--area add_order // start
+//============================================================================
 
     var area = document.getElementById('more-Information--area-show');
     if(area){
@@ -72,27 +83,51 @@
            element.style.display = '';
        }
     }
-    //------------ add product in card
+//============================================================================
+//  more-Information--area add_order // end
+//============================================================================
+
+//============================================================================
+//  add product in card // start
+//============================================================================
 
    var buy_button = document.getElementsByClassName('buy-button');
    for (var i=0;i < buy_button.length; i++) {
-       // addEvent(aTags[i], 'click', alertWinner);
        buy_button[i].addEventListener("click", addProductInCard, false);
    }
    var buttonBackToBuy = document.getElementById('back-to-buy');
    buttonBackToBuy.addEventListener('click',continueBuy,false);
+   var buttonCancel = document.getElementById('cart-full-wrapper-cancel-icon');
+   buttonCancel.addEventListener('click',continueBuy,false);
+   var buttonEraseBasket = document.getElementById('basket-erase');
+   buttonEraseBasket.addEventListener('click',eraseBasket,false);
+   
+   var buttonReversalOrder = document.getElementById('reversal-to-order');
+   if(buttonReversalOrder){
+       buttonReversalOrder.addEventListener('click', eraseBasket, false);
+   }
+
+
+   document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
+   document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
 
    function addProductInCard() {
        var element = document.getElementById('add-product-in-card'),
-           containerFog = document.getElementById('main-container-fog');
+       containerFog = document.getElementById('main-container-fog'),
+       orderCounter = +localStorage.getItem('basket');
        styleElement = getComputedStyle(element);
+
        if (styleElement.display == 'none') {
            element.style.display = 'block';
            containerFog.style.opacity = '0.1';
+           orderCounter += 1;
+           localStorage.setItem("basket", orderCounter);
        } else {
            element.style.display = '';
            containerFog.style.opacity = '';
        }
+       document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
+       document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
    }
 
    function continueBuy () {
@@ -101,7 +136,20 @@
        element.style.display = '';
        containerFog.style.opacity = '';
     }
-//------------ top-sales-product--after
+
+   function eraseBasket() {
+       debugger;
+       localStorage.setItem("basket", '0');
+       document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
+       document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
+   }
+//============================================================================
+//  add product in card // end
+//============================================================================
+
+//============================================================================
+//  top-sales-product--after // start
+//============================================================================
 
    var area = document.getElementById('more-Information--area-show');
    if(area){
@@ -127,8 +175,14 @@
             buttonshowTopSales.style.display = '';
         }
     }
+//============================================================================
+//  top-sales-product--after // end
+//============================================================================
 
-   //------------ new--product--after
+//============================================================================
+//  new--product--after // start
+//============================================================================
+
    var buttonshowNewProduct = document.getElementById('button-show-new-product');
    if (buttonshowNewProduct) {
        buttonshowNewProduct.addEventListener('click',ShowNewProduct, false);
@@ -148,7 +202,27 @@
            buttonshowNewProduct.style.display = '';
        }
    }
-    //-----------product-catalog--panel-setup--sorting----------------------
+//============================================================================
+//  new--product--after // end
+//============================================================================
+
+//============================================================================
+//  product-catalog--panel-setup--sorting // start
+//============================================================================
+   var sortingPriceSwitcher = document.getElementById('product-catalog--panel-setup--sorting-cost-switcher');
+   if (sortingPriceSwitcher) {
+       sortingPriceSwitcher.addEventListener('click',ShowSortingPrice, false);
+   }
+   function ShowSortingPrice() {
+       var sortingPrice = document.getElementById('product-catalog--panel-setup--sorting-price');
+       styleElement = getComputedStyle(sortingPrice);
+       if (styleElement.display == 'block') {
+           sortingPrice.style.display = 'none';
+       } else {
+           sortingPrice.style.display = '';
+       }
+   }
+
    var sortingBrandSwitcher = document.getElementById('product-catalog--panel-setup--sorting-brand--switcher');
    if (sortingBrandSwitcher) {
        sortingBrandSwitcher.addEventListener('click',ShowSortingBrand, false);
@@ -182,12 +256,22 @@
    function ShowSortingMemory() {
        var sortingMemory = document.getElementById('product-catalog--panel-setup--sorting-memory');
        styleElement = getComputedStyle(sortingMemory);
-       if (styleElement.display == 'none') {
-           sortingMemory.style.display = 'block';
+       if (styleElement.display == 'block') {
+           sortingMemory.style.display = 'none';
        } else {
            sortingMemory.style.display = '';
        }
    }
+   var detailedSpecificationsSwitcher = document.getElementById('product-catalog--panel-setup--sorting--detailed-specifications');
+   if (detailedSpecificationsSwitcher) {
+       detailedSpecificationsSwitcher.addEventListener('click',detailedSpecificationsSwitch, false);
+   }
+   function detailedSpecificationsSwitch () {
+       ShowSortingOs();
+       ShowSortingCamera();
+       ShowSortingSim();
+   }
+
    var sortingOsSwitcher = document.getElementById('product-catalog--panel-setup--sorting-os-switcher');
    if (sortingOsSwitcher) {
        sortingOsSwitcher.addEventListener('click',ShowSortingOs, false);
@@ -227,3 +311,105 @@
            sortingSim.style.display = '';
        }
    }
+//============================================================================
+//  product-catalog--panel-setup--sorting // end
+//============================================================================
+
+//============================================================================
+   //  widget - Calculator // start
+//============================================================================
+
+   document.getElementById("button-reset").addEventListener('click',Reset,false);
+   document.getElementById("button-percent").addEventListener('click',percent,false);
+   document.getElementById("button-SquareRoot").addEventListener('click',SquareRoot,false);
+   document.getElementById("button-changeSign").addEventListener('click',changeSign,false);
+
+   var FirstOperand = null,
+       flagNewOperand = false,
+       opSelection = '';
+
+   function Reset() {
+       document.calculator.display.value = '0';
+       FirstOperand = null;
+       flagNewOperand = false;
+       opSelection = '';
+   }
+
+   function getData(i) {
+       var i,
+           nul = document.calculator.display.value,
+           number;
+       if (flagNewOperand) {
+           document.calculator.display.value = ''
+       }
+       if (nul == '0') {
+           document.calculator.display.value = '';
+       }
+       flagNewOperand = false;
+       number = document.calculator.display.value + i;
+       document.calculator.display.value = number;
+   }
+
+   function calculation (op) {
+       var FirstOperand = document.calculator.display.value;
+       if (flagNewOperand && opSelection != "=")
+       {
+           document.calculator.display.value = total;
+       }
+       else
+       {
+           flagNewOperand = true;
+           if ( '+' == opSelection )
+               total += parseFloat(FirstOperand);
+           else if ( '-' == opSelection )
+               total -= parseFloat(FirstOperand);
+           else if ( '/' == opSelection )
+               total /= parseFloat(FirstOperand);
+           else if ( '*' == opSelection )
+               total *= parseFloat(FirstOperand);
+           else
+               total = parseFloat(FirstOperand);
+           document.calculator.display.value = total;
+           opSelection = op;
+       }
+   }
+   function changeSign() {
+       document.calculator.display.value = parseFloat(document.calculator.display.value)*-1;
+   }
+
+   function percent() {
+       document.calculator.display.value = (parseFloat(document.calculator.display.value)/100)*total;
+   }
+   function SquareRoot() {
+       document.calculator.display.value = Math.sqrt(parseFloat(document.calculator.display.value));
+   }
+
+   //============================================================================
+   //  widget - Calculator // end
+   //============================================================================
+   //============================================================================
+   //  change button Color // start
+   //============================================================================
+
+   var callButton = document.getElementById("header--request-call-button");
+   callButton.addEventListener('mouseenter',changeColor,false);
+
+   function changeColor() {
+       var r = _.random(0, 255),
+           g = _.random(0, 255),
+           b = _.random(0, 255),
+           color = 'rgb'+'('+r+','+g+ ','+b+')';
+       callButton.style.backgroundColor = color;
+       callButton.style.color = '#fff';
+   }
+   //============================================================================
+   //  change button Color // end
+   //============================================================================
+//sort
+   function sort() {
+
+var arrName = document.getElementsByClassName('product-catalog--content--pr1-name'),
+x = arrName[0].innerText,
+y = arrName[0].lastElementChild.innerText;
+   }
+//   sort();

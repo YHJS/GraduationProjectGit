@@ -120,12 +120,13 @@
     cursor: pointer;
 }
 .add-oder-button {
-    width: 255px;
+    width: 255px !important;
     margin: 0;
 }
-.add-oder-package-button {
+#add-oder-package-button {
+    display: inline-block;
     width: 255px;
-    margin: 35px 0;
+    margin: 35px 45px 0 0;
     position: relative;
 }
 .form-add-order--input-name span {
@@ -202,4 +203,31 @@
 .card-product--add-equipment--button {
     position: relative;
     margin: 0 10px;
+}
+
+.reversal-to-order-button {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    line-height: 39px;
+    height: 39px;
+    width: 78px;
+    background-color: #37c3c4;
+    border-radius: 3px;
+    box-shadow: 0px 3px 7px 0px rgba(49, 193, 195, 0.51);
+    cursor: pointer;
+    margin: 15px 30px 15px 15px;
+}
+
+.reversal-to-order-button a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+.reversal-to-order-button a:hover {
+    background-color: #25afb0;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #fff;
 }
