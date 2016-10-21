@@ -1,0 +1,266 @@
+/* iPhone SE 16GB product card*/
+/* --------------------  global settings -----------------*/
+/* --------------------  global settings -----------------*/
+.product-catalog--breadcrumbs > ul > li:nth-child(2):after {
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  font-family: 'ico-e-shop';
+  line-height: 66px;
+  content: "\e90e";
+  color: #32a3af;
+  font-size: 1.4em; }
+
+.card-product-description-wrapper {
+  padding-left: 50px;
+  width: 450px;
+  height: 421px;
+  border: solid 1px #008c9b;
+  background-color: #f2f2f2;
+  color: #007582;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 1.7em;
+  line-height: 1.3em;
+  margin: 45px auto 0; }
+
+.card-product-description {
+  width: 240px; }
+  .card-product-description p:first-child {
+    margin: 50px 0 40px 0; }
+  .card-product-description ul {
+    padding: 0;
+    list-style: none;
+    color: #000;
+    font-size: 0.59em;
+    line-height: 1.714em; }
+  .card-product-description p:last-child {
+    padding: 0;
+    list-style: none;
+    color: #000;
+    font-size: 0.59em;
+    line-height: 1.714em; }
+    .card-product-description p:last-child a {
+      color: #000;
+      text-decoration: none;
+      border-bottom: dashed 1px #007582;
+      margin: 0 3px; }
+    .card-product-description p:last-child a:hover {
+      cursor: pointer;
+      opacity: 0.65; }
+
+.card-product--description-start {
+  padding-left: 60px; }
+
+.card-product-description-cost {
+  display: inline-block;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 0.86em;
+  color: #007582; }
+
+.card-product-description-cost--button {
+  position: relative !important;
+  left: 9px;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 0.7rem;
+  display: inline-block;
+  width: 94px;
+  margin: 0 15px; }
+  .card-product-description-cost--button a {
+    font-family: "MyriadProRegular", Arial sans-serif;
+    font-size: 1.56em; }
+
+.card-product-description-cost--hotspot-button {
+  width: 94px; }
+
+.card-product-service-perspective-wrapper {
+  position: relative;
+  top: -90px;
+  margin: 0 auto;
+  width: 340px;
+  height: 187px;
+  perspective: 350px; }
+
+.card-product-service--wrapper {
+  position: relative; }
+
+.card-product-service-floor {
+  position: relative;
+  top: 100px;
+  width: 340px;
+  height: 100px;
+  border: solid 1px #008c9b;
+  background-color: #f2f2f2;
+  transform: rotateX(53deg) translateY(-15px); }
+
+.card-product-service-delivery {
+  width: 78px;
+  position: relative;
+  z-index: 1;
+  top: 35px;
+  left: 180px;
+  box-shadow: 7px 67px 27px -35px #007582;
+  margin: 0 auto;
+  color: #007582;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 0.95em;
+  text-align: center;
+  display: inline-block; }
+  .card-product-service-delivery span {
+    display: inline-block;
+    margin: 5px; }
+
+.card-product-service-pay {
+  width: 110px;
+  height: 73px;
+  position: relative;
+  z-index: 1;
+  top: -40px;
+  left: 223px;
+  transform: translateY(58px);
+  box-shadow: 0px 71px 35px -30px #007582;
+  margin: 0 auto;
+  color: #007582;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 0.95em;
+  text-align: center;
+  display: inline-block; }
+  .card-product-service-pay span {
+    display: inline-block;
+    margin: 5px; }
+
+.card-product--background-photo-1 img {
+  width: 100%;
+ /* background: url("../img/products/smartphones/apple/Card/iPhon_SE_color.png") no-repeat;
+  background-size: contain;
+}*/ }
+
+.card-product--description {
+  max-width: 357px;
+  text-align: left; }
+  .card-product--description p:nth-of-type(1) {
+    font-family: "MyriadSetPro-Thin", Arial sans-serif;
+    font-size: 2.29em;
+    line-height: 1.5;
+    margin: 30px 0; }
+  .card-product--description p:last-child {
+    font-family: "MyriadSetPro-Text", Arial sans-serif;
+    font-size: 1em;
+    line-height: 1.5; }
+
+.card-product--description--iPhone-logo {
+  height: 84px;
+  /*   width: 357px; */
+  margin: 10px 0 0;
+  background: url("../img/iPhoneSE_logo.png") center no-repeat; }
+
+.card-product--background-photo-2 img {
+  width: 100%; }
+
+/*.card-product--background-photo-2 img {
+    max-width: 365px;
+     height: 600px;
+     background: url("../img/products/smartphones/apple/Card/iPhon_SE_front_rear_2.png") no-repeat;
+     background-size: contain;
+ }
+*/
+.card-product--background-photo-3 {
+  width: 100%;
+  height: 860px;
+  background: url("../img/products/smartphones/apple/Card/iPhon_SE_color_2.png") right no-repeat; }
+
+.card-product--description--wide {
+  margin-top: 90px; }
+  .card-product--description--wide p:last-child {
+    width: 600px; }
+  .card-product--description--wide p:nth-of-type(1) {
+    width: 460px;
+    text-align: left; }
+
+.card-product--description--float p:nth-of-type(1) {
+  text-align: left; }
+
+.card-product--description--breadcrumbs-opinion {
+  font-family: "MyriadSetPro-Text", Arial sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+  list-style: none;
+  color: #007582;
+  margin: 80px 0; }
+  .card-product--description--breadcrumbs-opinion ul li {
+    margin: 0 5px;
+    display: inline-block; }
+    .card-product--description--breadcrumbs-opinion ul li a {
+      text-decoration: underline;
+      color: #007582; }
+  .card-product--description--breadcrumbs-opinion ul li:last-child:after {
+    display: inline-block;
+    position: relative;
+    left: 25px;
+    top: 5px;
+    font-family: 'ico-e-shop';
+    line-height: 66px;
+    content: "\e90e";
+    color: #32a3af;
+    font-size: 1.4em; }
+
+.card-product--description--our-advise {
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 1.72em;
+  color: #007582;
+  margin-bottom: 34px; }
+
+.card-product--add-equipment--description {
+  padding: 1px 10px;
+  margin: 15px auto;
+  width: 104px;
+  height: 66px;
+  border-radius: 2px;
+  background-color: #fff;
+  opacity: 0.949;
+  box-shadow: 0px 3px 10px 0px #656f80;
+  color: #007582;
+  line-height: 1.2;
+  text-align: center;
+  font-family: "OpenSansSemiBold", Arial sans-serif;
+  font-size: 0.8em; }
+  .card-product--add-equipment--description p {
+    margin-bottom: 5px; }
+
+.card-product--add-equipment-perspective {
+  width: 100%;
+  height: 300px;
+  perspective: 350px; }
+
+.card-product--add-equipment--floor-field {
+  position: relative;
+  top: -17px;
+  width: 100%;
+  height: 77px;
+  border: solid 1px #008c9b;
+  background-color: #f2f2f2;
+  transform: rotateX(53deg) translateY(-15px); }
+
+.card-product--add-equipment {
+  width: 350px;
+  position: relative;
+  z-index: 1;
+  box-shadow: -79px 165px 34px -138px #007582; }
+
+.card-product--add-equipment--description-wrapper {
+  display: inline-block; }
+
+.card-product--add-equipment-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+
+.bx-wrapper .bx-prev {
+  left: -19px;
+  background: url(../img/ico-sprite.png) -48px 0 no-repeat; }
+
+.bx-wrapper .bx-next {
+  right: -8px;
+  background: url(../img/ico-sprite.png) -5px 0 no-repeat; }
+
+/*# sourceMappingURL=iPhoneSE16GB_card.css.map */

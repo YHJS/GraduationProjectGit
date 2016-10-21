@@ -119,20 +119,20 @@
 
 .bx-wrapper .bx-prev {
     left: 0px;
-	background: url(../img/prev.png) center no-repeat;
+	background: url(../img/ico-sprite.png) -48px 0 no-repeat;
 }
 
 .bx-wrapper .bx-next {
 	right: 10px;
-	background: url(../img/next.png) center no-repeat;
+	background: url(../img/ico-sprite.png) -5px 0  no-repeat;
 }
 
 .bx-wrapper .bx-prev:hover {
-	background-position: 0 0;
+	background-position: -48px 0;
 }
 
 .bx-wrapper .bx-next:hover {
-	background-position: 0 0;
+	background-position: -5px 0;
 }
 
 .bx-wrapper .bx-controls-direction a {

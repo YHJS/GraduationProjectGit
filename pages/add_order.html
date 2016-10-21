@@ -6,20 +6,17 @@
     <title>products-smatphones</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="../apple-icon-180x180.png">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.css" >
     <link rel="stylesheet" type="text/css" href="../css/jquery.bxslider.css" /> <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="../css/jquery.jscrollpane.css"  media="all" /> <!-- Scroll -->
-    <link rel="stylesheet" type="text/css" href="../css/iPhoneSE16GB_card.css">
-    <link rel="stylesheet" type="text/css" href="../css/add_order.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/iPhoneSE16GB_card.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/add_order.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.min.css" />
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -106,7 +103,7 @@
             <div class="header--shop-basket icon-basket">
                 <div class="header--shop-basket-purchase">
                     <a href="../pages/add_order.html">
-                        <span id="header--shop-basket-purchase-number">0</span>
+                        <span id="header--shop-basket-purchase-number"></span>
                     </a>
                 </div>
             </div>
@@ -475,23 +472,19 @@
         </div>
     </div>
 </div>
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="../js/vendor/bootstrap.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="../js/plugins.js"></script>
 <script src="../js/vendor/jquery-ui.min.js"></script>
 <script src="../js/vendor/underscore.js"></script>
-<script src="../js/main.js"></script>
-<!-- Slider -->
 <script src="../js/vendor/jquery.bxslider.min.js"></script>
-<!-- Slider -->
-<!-- Scroll -->
-<script type="text/javascript" src="../js/vendor/jquery.jscrollpane.min.js"></script>
-<!-- Scroll -->
-<script type="text/javascript" src="../js/vendor/jquery.mousewheel.js"></script>
+<script src="../js/vendor/jquery.jscrollpane.min.js"></script>
+<script src="../js/vendor/jquery.mousewheel.js"></script>
+<script src="../js/main.js"></script>
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

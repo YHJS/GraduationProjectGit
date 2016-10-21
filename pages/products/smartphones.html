@@ -6,17 +6,15 @@
     <title>products-smatphones</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="../../apple-icon-180x180.png">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.theme.css">
     <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css"/> <!-- Slider -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.jscrollpane.css"  media="all" /> <!-- Scroll -->
-    <link rel="stylesheet" type="text/css" href="../../css/main.css">
-    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/main.min.css" />
 </head>
 <body>
 <!--[if lt IE 8]>
@@ -103,7 +101,7 @@
             <div class="header--shop-basket icon-basket">
                 <div class="header--shop-basket-purchase">
                     <a href="../../pages/add_order.html">
-                        <span id="header--shop-basket-purchase-number">0</span>
+                        <span id="header--shop-basket-purchase-number"></span>
                     </a>
                 </div>
             </div>
@@ -198,35 +196,35 @@
                         </span>
                         <ul id="product-catalog--panel-setup--sorting-brand">
                             <li>
-                                <input type="checkbox" id="checkApple">
+                                <input type="checkbox" id="checkApple" value="apple">
                                 <label for="checkApple">Apple</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkSamsung">
+                                <input type="checkbox" id="checkSamsung" value="samsung">
                                 <label for="checkSamsung">Samsung</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkHTC">
+                                <input type="checkbox" id="checkHTC" value="htc">
                                 <label for="checkHTC">HTC</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkXiaomi">
+                                <input type="checkbox" id="checkXiaomi" value="xiaomi">
                                 <label for="checkXiaomi">Xiaomi</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkSony">
+                                <input type="checkbox" id="checkSony" value="sony">
                                 <label for="checkSony">Sony</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkLG">
+                                <input type="checkbox" id="checkLG" value="lg">
                                 <label for="checkLG">LG</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkFly">
+                                <input type="checkbox" id="checkFly" value="fly">
                                 <label for="checkFly">Fly</label>
                             </li>
                             <li>
-                                <input type="checkbox" id="checkMeizu">
+                                <input type="checkbox" id="checkMeizu" value="meizu">
                                 <label for="checkMeizu">Meizu</label>
                             </li>
                         </ul>
@@ -380,6 +378,7 @@
                         </ul>
                     </li>
                 </ul>
+                <input type="button" value="Сортировать" id="sorting">
             </div>
             <div class="product-catalog--panel-setup" >
                 <form  id="product-catalog--panel-setup--normalize" action="#">
@@ -412,11 +411,11 @@
                 </div>
             </div>
             <div class="product-catalog--content">
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper"  id="product-catalog--product1">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
                             <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png" alt="Фото Apple-iPhone-SE">
-                            <div class="product-catalog--content--pr1-name">
+                            <div class="product-catalog--content--pr1-name" >
                                 <p>Apple iPhone SE 16 Gb Rose Gold</p>
                                 <p class="product-catalog--content--pr1-description">screen: 4, sim: nano, camera: 12, OS: iOS, memory: 16</p>
                             </div>
@@ -435,12 +434,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product2">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple_iPhone_5s_Space_Gray.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Apple iPhone 5s 16GB Space Gray</p>
                             </div>
                             <div class="product-catalog--content--pr1-description">
                                 <p>screen: 4, sim: nano, camera: 12, OS: iOS, memory: 16</p>
@@ -460,12 +459,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product3">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple_iPhone_6_Space_Gray.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Apple iPhone 6 16GB Space Gray</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -482,12 +481,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product4">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple_iPhone_7_Black.jpeg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Apple iPhone 7 32GB Black</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -504,12 +503,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product5">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/samsung/samsung_Galaxy_S6_Gold_Platinum.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Samsung Galaxy S6 32GB Gold Platinum</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -526,12 +525,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product6">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/samsung/Samsung_Galaxy_J5_White.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Samsung Galaxy J5 White</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -548,12 +547,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product7">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/samsung/Samsung_Galaxy_A3_(2016)_Black.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Samsung Galaxy A3 (2016) Black</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -570,12 +569,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product8">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/samsung/Samsung_Galaxy_S6_Edge_Black_Sapphire.jpg">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Samsung Galaxy S6 Edge 32GB Black Sapphire</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -592,12 +591,210 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-catalog--content--wrapper">
+                <div class="product-catalog--content--wrapper" id="product-catalog--product9">
                     <div class="product-catalog--content--pr1">
                         <a href="smartphones/iPhone_card.html">
-                            <img class="product-catalog--content-img" src="../../img/products/smartphones/apple/Apple-iPhone-SE.png">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/samsung/samsung_galaxy_S7.png">
                             <div class="product-catalog--content--pr1-name">
-                                <p>Apple iPhone SE 16 Gb Rose Gold</p>
+                                <p>Samsung Galaxy S7</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product10">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/hts/HTC_Desire_820G_dual_sim_Gray.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>HTC Desire 820G dual sim Gray</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product11">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/hts/HTC_Desire_White.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>HTC Desire 626G White</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product12">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/hts/HTC_One_E9+.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>HTC One E9+ dual sim</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product13">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/hts/HTC_One_M9_Gray.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>HTC One M9 32GB Gray</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product14">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/sony/Sony_Xperia_C5_Ultra_Dual_Black.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>Sony Xperia C5 Ultra Dual Black</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product15">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/sony/Sony_Xperia_X_Compact_Universe_Black.jpeg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>Sony Xperia X Compact Universe Black</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product16">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/sony/Sony_Xperia_Z1_Compact_Black.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>Sony Xperia Z1 Compact Black</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product17">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/sony/Sony_Xperia_Z3_White.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>Sony Xperia Z3 Compact White</p>
+                            </div>
+                        </a>
+                        <div class="product-catalog--content--pr1-cost">
+                            <span>14 258</span>
+                            <span>грн</span>
+                            <span>|</span>
+                            <span class="usd">648</span>
+                            <span class="usd">usd</span>
+                        </div>
+                        <div class="buy-button product-catalog--content--button">
+                            <div class="buy-button-hotspot product-catalog--content--hotspot-button">
+                            </div>
+                            <a>Купить</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-catalog--content--wrapper" id="product-catalog--product18">
+                    <div class="product-catalog--content--pr1">
+                        <a href="smartphones/iPhone_card.html">
+                            <img class="product-catalog--content-img" src="../../img/products/smartphones/sony/Sony_Xperia_Z5_Compact_Graphite_Black.jpg">
+                            <div class="product-catalog--content--pr1-name">
+                                <p>Sony Xperia Z5 Compact Graphite Black</p>
                             </div>
                         </a>
                         <div class="product-catalog--content--pr1-cost">
@@ -781,24 +978,19 @@
         </div>
     </div>
 </div>
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="../../js/vendor/bootstrap.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="../../js/plugins.js"></script>
 <script src="../../js/vendor/jquery-ui.min.js"></script>
 <script src="../../js/vendor/underscore.js"></script>
-<script src="../../js/main.js"></script>
-<!-- Slider -->
 <script src="../../js/vendor/jquery.bxslider.min.js"></script>
-<!-- Slider -->
-<!-- Scroll -->
-<script type="text/javascript" src="../../js/vendor/jquery.jscrollpane.min.js"></script>
-<!-- Scroll -->
-<script type="text/javascript" src="../../js/vendor/jquery.mousewheel.js"></script>
+<script src="../../js/vendor/jquery.jscrollpane.min.js"></script>
+<script src="../../js/vendor/jquery.mousewheel.js"></script>
+<script src="../../js/main.js"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

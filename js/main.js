@@ -1,9 +1,11 @@
-
-   $(document).ready(function(){
+    //============================================================================
+    //  jQuery plugins // start
+    //============================================================================
+    $(document).ready(function(){
     //---- Slider --
         $('.Main-slider').bxSlider({
-          //  adaptiveHeight: true,
-         //   adaptiveHeightSpeed: 250,
+           // adaptiveHeight: true,
+           // adaptiveHeightSpeed: 250,
             auto: true});
     //---- bxpager --
        $('.bxpager').bxSlider({
@@ -50,31 +52,28 @@
             });
         } );
     });
-    //-------------------
-    //---- checkboxradio-select-product
-    //  $( function() {
-    //    $( "input" ).checkboxradio();
-    // } );
+    //============================================================================
+    //  jQuery plugins // end
+    //============================================================================
+    //============================================================================
+    //  jQuery UI // start
+    //============================================================================
 
-//============================================================================
-//  jQuery UI // start
-//============================================================================
-
-   $( function() {
+    $( function() {
        $( "#files" ).selectmenu();
-   } );
+    } );
 
 
-//============================================================================
-//  more-Information--area add_order // start
-//============================================================================
+    //============================================================================
+    //  more-Information--area add_order // start
+    //============================================================================
 
     var area = document.getElementById('more-Information--area-show');
     if(area){
           area.addEventListener('click', showAreaMoreInformation, false);
     }
 
-   function showAreaMoreInformation() {
+    function showAreaMoreInformation() {
         var element = document.getElementById('wrapper-form-add-order--more-Information--text-area'),
             styleElement = getComputedStyle(element);
        if (styleElement.display == 'none') {
@@ -83,13 +82,13 @@
            element.style.display = '';
        }
     }
-//============================================================================
-//  more-Information--area add_order // end
-//============================================================================
+    //============================================================================
+    //  more-Information--area add_order // end
+    //============================================================================
 
-//============================================================================
-//  add product in card // start
-//============================================================================
+    //============================================================================
+    //  add product in card // start
+    //============================================================================
 
    var buy_button = document.getElementsByClassName('buy-button');
    for (var i=0;i < buy_button.length; i++) {
@@ -101,33 +100,37 @@
    buttonCancel.addEventListener('click',continueBuy,false);
    var buttonEraseBasket = document.getElementById('basket-erase');
    buttonEraseBasket.addEventListener('click',eraseBasket,false);
-   
+
    var buttonReversalOrder = document.getElementById('reversal-to-order');
    if(buttonReversalOrder){
        buttonReversalOrder.addEventListener('click', eraseBasket, false);
    }
 
-
-   document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
-   document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
+   if (sessionStorage.getItem('basket') == null) {
+       document.getElementById('basket-purchase').innerHTML = '0';
+       document.getElementById('header--shop-basket-purchase-number').innerHTML = '0';
+   } else {
+       document.getElementById('basket-purchase').innerHTML = sessionStorage.getItem('basket');
+       document.getElementById('header--shop-basket-purchase-number').innerHTML =  sessionStorage.getItem('basket');
+   }
 
    function addProductInCard() {
        var element = document.getElementById('add-product-in-card'),
        containerFog = document.getElementById('main-container-fog'),
-       orderCounter = +localStorage.getItem('basket');
+       orderCounter = +sessionStorage.getItem('basket');
        styleElement = getComputedStyle(element);
 
        if (styleElement.display == 'none') {
            element.style.display = 'block';
            containerFog.style.opacity = '0.1';
            orderCounter += 1;
-           localStorage.setItem("basket", orderCounter);
+           sessionStorage.setItem("basket", orderCounter);
        } else {
            element.style.display = '';
            containerFog.style.opacity = '';
        }
-       document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
-       document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
+       document.getElementById('basket-purchase').innerHTML = sessionStorage.getItem('basket');
+       document.getElementById('header--shop-basket-purchase-number').innerHTML =  sessionStorage.getItem('basket');
    }
 
    function continueBuy () {
@@ -138,18 +141,17 @@
     }
 
    function eraseBasket() {
-       debugger;
-       localStorage.setItem("basket", '0');
-       document.getElementById('basket-purchase').innerHTML = localStorage.getItem('basket');
-       document.getElementById('header--shop-basket-purchase-number').innerHTML =  localStorage.getItem('basket');
+       sessionStorage.setItem("basket", '0');
+       document.getElementById('basket-purchase').innerHTML = sessionStorage.getItem('basket');
+       document.getElementById('header--shop-basket-purchase-number').innerHTML =  sessionStorage.getItem('basket');
    }
-//============================================================================
-//  add product in card // end
-//============================================================================
+    //============================================================================
+    //  add product in card // end
+    //============================================================================
 
-//============================================================================
-//  top-sales-product--after // start
-//============================================================================
+    //============================================================================
+    //  top-sales-product--after // start
+    //============================================================================
 
    var area = document.getElementById('more-Information--area-show');
    if(area){
@@ -175,13 +177,13 @@
             buttonshowTopSales.style.display = '';
         }
     }
-//============================================================================
-//  top-sales-product--after // end
-//============================================================================
+    //============================================================================
+    //  top-sales-product--after // end
+    //============================================================================
 
-//============================================================================
-//  new--product--after // start
-//============================================================================
+    //============================================================================
+    //  new--product--after // start
+    //============================================================================
 
    var buttonshowNewProduct = document.getElementById('button-show-new-product');
    if (buttonshowNewProduct) {
@@ -202,13 +204,13 @@
            buttonshowNewProduct.style.display = '';
        }
    }
-//============================================================================
-//  new--product--after // end
-//============================================================================
+    //============================================================================
+    //  new--product--after // end
+    //============================================================================
 
-//============================================================================
-//  product-catalog--panel-setup--sorting // start
-//============================================================================
+    //============================================================================
+    //  product-catalog--panel-setup--sorting // start
+    //============================================================================
    var sortingPriceSwitcher = document.getElementById('product-catalog--panel-setup--sorting-cost-switcher');
    if (sortingPriceSwitcher) {
        sortingPriceSwitcher.addEventListener('click',ShowSortingPrice, false);
@@ -311,13 +313,49 @@
            sortingSim.style.display = '';
        }
    }
-//============================================================================
-//  product-catalog--panel-setup--sorting // end
-//============================================================================
-
-//============================================================================
-   //  widget - Calculator // start
-//============================================================================
+    //============================================================================
+    //  product-catalog--panel-setup--sorting // end
+    //============================================================================
+   //============================================================================
+   //  sorting product logic // start
+   //============================================================================
+   var allSortingBottom = document.getElementById('sorting');
+   if (allSortingBottom) {
+       allSortingBottom.addEventListener('click',getAllSorting, false);
+   }
+   function getAllSorting() {
+       var arrProduct = document.getElementsByClassName('product-catalog--content--wrapper');
+       var sortingBrand = document.getElementById('product-catalog--panel-setup--sorting-brand'),
+           x = '',
+           z = '',
+           sortingBrandArr = sortingBrand.getElementsByTagName('input');
+       for (i = 0; i < sortingBrandArr.length; i++) {
+           debugger;
+           if (sortingBrandArr[i].checked) {
+               x = sortingBrandArr[i].value;
+               for (var y = 0; y < arrProduct.length; y++) {
+                   if (_.contains(arrProduct[y].innerText.split("\n").join("").toLowerCase().split(' '), x)) {
+                       z = document.getElementById(arrProduct[y].id);
+                       z.style.display = 'flex';
+                   }
+               }
+           } else {
+               x = sortingBrandArr[i].value;
+               for (var y = 0; y < arrProduct.length; y++) {
+                   if (_.contains(arrProduct[y].innerText.split("\n").join("").toLowerCase().split(' '), x)) {
+                       z = document.getElementById(arrProduct[y].id);
+                       z.style.display = 'none';
+                   }
+               }
+           }
+       }
+   }
+   //============================================================================
+   //  sorting product logic // end
+   //============================================================================
+    //============================================================================
+       //  widget - Calculator // start
+    //============================================================================
 
    document.getElementById("button-reset").addEventListener('click',Reset,false);
    document.getElementById("button-percent").addEventListener('click',percent,false);
@@ -405,11 +443,3 @@
    //============================================================================
    //  change button Color // end
    //============================================================================
-//sort
-   function sort() {
-
-var arrName = document.getElementsByClassName('product-catalog--content--pr1-name'),
-x = arrName[0].innerText,
-y = arrName[0].lastElementChild.innerText;
-   }
-//   sort();

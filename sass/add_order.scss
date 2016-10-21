@@ -1,0 +1,248 @@
+/* add order general*/
+
+/* --------------------  global settings -----------------*/
+$main-site-color: #008c9b;
+$accent-color: darken($main-site-color, 5%);
+$buy-button-color: lighten($main-site-color, 12%);
+$buy-button-hover-color: lighten($main-site-color, 8%);
+/* --------------------  global settings -----------------*/
+
+.product-catalog--breadcrumbs > ul > li:nth-child(3):after {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    font-family: 'ico-e-shop';
+    line-height: 66px;
+    content: "\e90e";
+    color: #32a3af;
+    font-size: 1.4em;
+}
+
+.link-back-to-product-catalog {
+    font-family: "MyriadSetPro-Text", Arial sans-serif;
+    font-size: 1.3em;
+    text-align: left;
+    list-style: none;
+    color: $accent-color;
+    margin: 80px 0;
+    a {
+        text-decoration: underline;
+        color: $accent-color;
+    }
+}
+
+.wrapper-form-add-order {
+    max-width: 680px;
+    min-height: 707px;
+    border-radius: 3px;
+    background-color: #fff;
+    opacity: 0.98;
+    box-shadow: 0px 0px 4px 0px rgba(0, 140, 155, 0.1),
+                0px 2px 8px 0px rgba(0, 140, 155, 0.1),
+                0px 10px 30px 0px rgba(0, 140, 155, 0.1);
+    margin: 35px 0 0 75px;
+    font-family: "OpenSansSemiBold", Arial sans-serif;
+    font-size: 1.14em;
+    color: $accent-color;
+    padding-top: 30px;
+    display: inline-block;
+    p {
+        font-size: 1.4em;
+        margin: 0px 0px 60px 56px;
+    }
+}
+
+.form-add-order--input-name {
+    display: block;
+    height:  40px;
+    text-align: left;
+    margin: 18px 0px;
+    span {
+        text-decoration: underline;
+    }
+    span:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+.form-add-order--input {
+    width: 348px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0px 10px 8px 0px rgba(0, 0, 0, 0.11);
+    border: solid 1px $accent-color;
+    border-radius: 3px;
+    margin: 9px 0px;
+    padding: 0 10px;
+
+}
+.wrapper-form-add-order--buyer-Information {
+    position: relative;
+    width: 600px;
+    height: 260px;
+    border-bottom: solid 1px rgba(0, 140, 155, 0.102);
+    margin: 25px auto;
+}
+.wrapper-form-add-order--buyer-Information--input-names {
+    position: absolute;
+    left: 18px;
+    width: 245px;
+}
+.wrapper-form-add-order--more-Information--input-names {
+    position: absolute;
+    width: 245px;
+}
+.wrapper-form-add-order--buyer-Information--inputs {
+    width: 348px;
+    position: absolute;
+    right: 0;
+}
+
+.wrapper-form-add-order--more-Information--inputs {
+    width: 348px;
+    position: absolute;
+    right: 40px;
+}
+
+.wrapper-form-add-order--more-Information {
+    position: relative;
+    width: 680px;
+    height: 120px;
+    padding: 0 40px 0 60px;
+}
+
+.wrapper-form-add-order--more-Information--area {
+    width: 563px;
+    margin: 38px auto ;
+    label {
+        display: block;
+        text-decoration: underline;
+    }
+    label:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+.wrapper-form-add-order--more-Information--text-area {
+    display: none;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: inset 0px 10px 8px 0px rgba(0, 0, 0, 0.11);
+    border: solid 1px $accent-color;
+    border-radius: 3px;
+    margin: 18px 0;
+    padding: 10px;
+    transition: all 0s ease 2s;
+}
+
+.add-oder-button {
+    width: 255px !important;
+    margin: 0;
+}
+#add-oder-package-button {
+    display: inline-block;
+    width: 255px;
+    margin: 35px 45px 0 0;
+    position: relative;
+}
+
+.form-add-order--description-product-wrapper {
+    position: relative;
+    display: inline-block;
+    min-height: 540px;
+    margin-left: 90px;
+}
+.form-add-order--description-product-wrapper-perspective {
+    position: relative;
+    top: -100px;
+    margin: 0 auto;
+    width: 340px;
+    height: 187px;
+    perspective: 350px;
+}
+.form-add-order--description-product-floor {
+    position: relative;
+    top:100px;
+    width: 340px;
+    height: 100px;
+    border: solid 1px $main-site-color;
+    background-color: #f2f2f2;
+    transform: rotateX(53deg) translateY(-15px);
+}
+.form-add-order--description-product-image {
+    position: relative;
+    display: inline-block;
+    top: 27px;
+    left: 53px;
+    width: 80px;
+    height: 110px;
+    z-index: 1;
+    background: url(../img/products/smartphones/apple/Apple-iPhone-SE.png) center no-repeat;
+    background-size: contain;
+    box-shadow: 0 73px 40px -35px $accent-color;
+}
+.form-add-order--description-product {
+    position: relative;
+    display: inline-block;
+    top: 13px;
+    left: 70px;
+    color: $accent-color;
+    font-family: "OpenSansSemiBold", Arial sans-serif;
+    font-size: 1.14em;
+    z-index: 1;
+    box-shadow: -35px 87px 40px -52px $accent-color;
+    p {
+        margin: 8px 0;
+    }
+    p:nth-child(2) {
+        font-size: 0.71em;
+        opacity: 0.5;
+        margin: 0;
+        line-height: 1.8;
+    }
+    p:nth-child(3) {
+        font-size: 0.71em;
+        opacity: 0.5;
+        margin: 0;
+        line-height: 1.8;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+}
+.card-product--add-equipment--button {
+    position: relative;
+    margin: 0 10px;
+}
+
+.reversal-to-order-button {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    line-height: 39px;
+    height: 39px;
+    width: 78px;
+    background-color: #37c3c4;
+    border-radius: 3px;
+    box-shadow: 0px 3px 7px 0px rgba(49, 193, 195, 0.51);
+    cursor: pointer;
+    margin: 15px 30px 15px 15px;
+    a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        color: #fff;
+    }
+    a:hover {
+        background-color: #25afb0;
+        text-decoration: none;
+        border-radius: 3px;
+        color: #fff;
+    }
+}
+
